@@ -2,6 +2,7 @@
 #include <string>
 
 #include <ela_carrier.h>
+#include <sqlite3.h>
 
 extern "C" JNIEXPORT jstring
 
@@ -13,6 +14,9 @@ Java_org_elastos_carrierwrapper_MainActivity_stringFromJNI(
 
 
     ela_log_init(ElaLogLevel_Debug, nullptr, nullptr);
+
+
+    sqlite3_open(nullptr, nullptr);
 
     return env->NewStringUTF(hello.c_str());
 }
